@@ -2,7 +2,7 @@
   <div class="game-slider">
     <button class="slider-arrow left" @click="prev" aria-label="Назад">&#8592;</button>
     <div class="slider-track">
-      <ProductCard v-for="game in visibleGames" :key="game.id" :game="game" variant="compact" :showAddToCart="true" @add-to-cart="$emit('add-to-cart', $event)" />
+      <ProductCard v-for="game in visibleGames" :key="game.id" :game="game" variant="more" :showAddToCart="true" @add-to-cart="$emit('add-to-cart', $event)" />
     </div>
     <button class="slider-arrow right" @click="next" aria-label="Вперёд">&#8594;</button>
   </div>

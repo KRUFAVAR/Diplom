@@ -2,7 +2,7 @@
   <section class="game-section">
     <h2>{{ title }}</h2>
     <div class="game-section__list">
-      <ProductCard v-for="game in games" :key="game.id" :game="game" variant="compact" :showAddToCart="true" @add-to-cart="$emit('add-to-cart', $event)" />
+      <ProductCard v-for="game in games" :key="game.id" :game="game" variant="more" :showAddToCart="true" @add-to-cart="$emit('add-to-cart', $event)" />
     </div>
   </section>
 </template>

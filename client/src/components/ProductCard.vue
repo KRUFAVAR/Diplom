@@ -12,6 +12,7 @@
         <button v-if="showAddToCart" class="product-card__add" @click="$emit('add-to-cart', game)">В корзину</button>
         <button v-if="showRemove" class="product-card__remove" @click="$emit('remove', game)">Удалить</button>
         <button v-if="showAddToWishlist" class="product-card__fav" @click="$emit('add-to-wishlist', game)">В избранное</button>
+        <button v-if="showMore || variant === 'more'" class="product-card__more" @click="$emit('more', game)">Подробнее</button>
       </div>
     </div>
   </div>
@@ -22,11 +23,12 @@ const props = defineProps({
   game: Object,
   variant: {
     type: String,
-    default: 'compact' // 'compact' для каталога, 'detailed' для wishlist/cart
+    default: 'more' // 'more' по умолчанию для главной и каталога
   },
   showAddToCart: Boolean,
   showRemove: Boolean,
-  showAddToWishlist: Boolean
+  showAddToWishlist: Boolean,
+  showMore: Boolean
 });
 </script>
 
@@ -54,13 +56,22 @@ const props = defineProps({
   padding: 24px;
   gap: 24px;
 }
+.product-card.more {
+  width: 220px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
 .product-card__img {
   width: 160px;
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
 }
-.product-card.compact .product-card__img {
+.product-card.compact .product-card__img,
+.product-card.more .product-card__img {
   width: 100%;
   height: 140px;
   margin-bottom: 12px;
@@ -115,7 +126,7 @@ const props = defineProps({
   opacity: 1;
   text-decoration: underline;
 }
-.product-card__add, .product-card__fav {
+.product-card__add, .product-card__fav, .product-card__more {
   background: #eab308;
   color: #2a0606;
   border: none;
@@ -125,7 +136,7 @@ const props = defineProps({
   cursor: pointer;
   transition: background 0.2s;
 }
-.product-card__add:hover, .product-card__fav:hover {
+.product-card__add:hover, .product-card__fav:hover, .product-card__more:hover {
   background: #fff;
   color: #eab308;
 }

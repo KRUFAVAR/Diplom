@@ -5,7 +5,7 @@
         v-for="game in paginatedGames"
         :key="game.id"
         :game="game"
-        variant="compact"
+        variant="more"
         :showAddToCart="true"
         @add-to-cart="$emit('add-to-cart', $event)"
       />
