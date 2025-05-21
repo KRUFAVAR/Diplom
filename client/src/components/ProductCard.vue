@@ -12,13 +12,14 @@
         <button v-if="showAddToCart" class="product-card__add" @click="$emit('add-to-cart', game)">В корзину</button>
         <button v-if="showRemove" class="product-card__remove" @click="$emit('remove', game)">Удалить</button>
         <button v-if="showAddToWishlist" class="product-card__fav" @click="$emit('add-to-wishlist', game)">В избранное</button>
-        <button v-if="showMore || variant === 'more'" class="product-card__more" @click="$emit('more', game)">Подробнее</button>
+        <button v-if="showMore || variant === 'more'" class="product-card__more" @click="goToProduct">Подробнее</button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 const props = defineProps({
   game: Object,
   variant: {
@@ -30,6 +31,10 @@ const props = defineProps({
   showAddToWishlist: Boolean,
   showMore: Boolean
 });
+const router = useRouter();
+function goToProduct() {
+  router.push({ name: 'Product', params: { id: props.game.id } });
+}
 </script>
 
 <style scoped>

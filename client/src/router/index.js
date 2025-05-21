@@ -4,7 +4,7 @@ import Catalog from '../views/Catalog.vue'
 import News from '../views/News.vue'
 import Wishlist from '../views/Wishlist.vue'
 import Cart from '../views/Cart.vue'
-
+import Product from '../views/Product.vue'
 
 const routes = [
   {
@@ -31,6 +31,11 @@ const routes = [
     path: '/cart',
     name: 'Cart',
     component: Cart
+  },
+  {
+    path: '/product/:id',
+    name: 'Product',
+    component: Product
   }
 ]
 
