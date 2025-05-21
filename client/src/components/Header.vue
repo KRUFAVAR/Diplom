@@ -23,8 +23,8 @@
         </nav>
       </div>
       <div class="header-bottom-right">
-        <router-link to="/Wishlist" class="nav-link" active-class="active" exact>Главное</router-link>
-        <router-link to="/cart" class="nav-link" active-class="active">Все игры</router-link>
+        <router-link to="/wishlist" class="nav-link" active-class="active" exact>Нравится</router-link>
+        <router-link to="/cart" class="nav-link" active-class="active">Корзина</router-link>
       </div>
     </div>
   </header>
