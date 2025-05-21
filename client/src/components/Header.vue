@@ -2,9 +2,9 @@
   <header class="header">
     <div class="header__logo">GAME WORLD</div>
     <nav class="header__nav">
-      <a href="#" class="header__link active">Главная</a>
-      <a href="#" class="header__link">Все игры</a>
-      <a href="#" class="header__link">Новости</a>
+      <router-link to="/" class="header__link" active-class="active" exact>Главная</router-link>
+      <router-link to="/catalog" class="header__link" active-class="active">Все игры</router-link>
+      <router-link to="/news" class="header__link" active-class="active">Новости</router-link>
     </nav>
     <div class="header__search">
       <input type="text" placeholder="Поиск..." />
@@ -48,7 +48,7 @@ export default {
   transition: opacity 0.2s;
 }
 .header__link.active,
-.header__link:hover {
+.header__link.router-link-exact-active {
   opacity: 1;
   border-bottom: 2px solid #eab308;
 }
