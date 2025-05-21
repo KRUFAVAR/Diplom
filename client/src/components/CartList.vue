@@ -1,11 +1,20 @@
 <template>
   <div>
-    <CartItem v-for="game in games" :key="game.id" :game="game" />
+    <ProductCard
+      v-for="game in games"
+      :key="game.id"
+      :game="game"
+      variant="detailed"
+      :showRemove="true"
+      :showAddToWishlist="true"
+      @remove="$emit('remove', $event)"
+      @add-to-wishlist="$emit('add-to-wishlist', $event)"
+    />
   </div>
 </template>
 
 <script setup>
-import CartItem from './CartItem.vue';
+import ProductCard from './ProductCard.vue';
 const props = defineProps({
   games: Array
 });

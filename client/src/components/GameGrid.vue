@@ -1,7 +1,14 @@
 <template>
   <div class="game-grid-wrapper">
     <div class="game-grid">
-      <GameCard v-for="game in paginatedGames" :key="game.id" :game="game" />
+      <ProductCard
+        v-for="game in paginatedGames"
+        :key="game.id"
+        :game="game"
+        variant="compact"
+        :showAddToCart="true"
+        @add-to-cart="$emit('add-to-cart', $event)"
+      />
     </div>
     <div class="pagination">
       <button :disabled="currentPage === 1" @click="prevPage">&lt;</button>
@@ -13,7 +20,7 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue';
-import GameCard from './GameCard.vue';
+import ProductCard from './ProductCard.vue';
 
 const props = defineProps({
   games: {

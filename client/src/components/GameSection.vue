@@ -2,16 +2,16 @@
   <section class="game-section">
     <h2>{{ title }}</h2>
     <div class="game-section__list">
-      <GameCard v-for="game in games" :key="game.id" :game="game" />
+      <ProductCard v-for="game in games" :key="game.id" :game="game" variant="compact" :showAddToCart="true" @add-to-cart="$emit('add-to-cart', $event)" />
     </div>
   </section>
 </template>
 
 <script>
-import GameCard from './GameCard.vue';
+import ProductCard from './ProductCard.vue';
 export default {
   name: 'GameSection',
-  components: { GameCard },
+  components: { ProductCard },
   props: {
     title: String,
     games: Array

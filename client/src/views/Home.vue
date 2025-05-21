@@ -21,7 +21,7 @@
 <script setup>
 import Header from '@/components/Header.vue';
 import MainBanner from '@/components/MainBanner.vue';
-import GameCard from '@/components/GameCard.vue';
+// import GameCard from '@/components/GameCard.vue';
 import GameSlider from '@/components/GameSlider.vue';
 import PromoBanner from '@/components/PromoBanner.vue';
 import NewsSlider from '@/components/NewsSlider.vue';
